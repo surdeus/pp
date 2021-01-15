@@ -421,6 +421,7 @@ static struct Tag spp_tags[] = {
 	{ "endpipe", spp_endpipe },
 	{ "include", spp_include },
 	{ "system", spp_system },
+	{ "s", spp_system },
 	{ NULL, spp_default },
 	{ NULL }
 };
