@@ -398,10 +398,12 @@ static PUT_CALLBACK(spp_fputs) {
 
 static struct Tag spp_tags[] = {
 	{ "get", spp_get },
+	{ "$", spp_get },
 	{ "hex", spp_hex },
 	{ "getrandom", spp_getrandom },
 	{ "grepline", spp_grepline },
 	{ "set", spp_set },
+	{ "=", spp_set },
 	{ "add", spp_add },
 	{ "sub", spp_sub },
 	{ "switch", spp_switch },
@@ -418,10 +420,13 @@ static struct Tag spp_tags[] = {
 	{ "else", spp_else },
 	{ "endif", spp_endif },
 	{ "pipe", spp_pipe },
+	{ "|", spp_pipe },
 	{ "endpipe", spp_endpipe },
+	{ "#|", spp_endpipe },
 	{ "include", spp_include },
+	{ "<", spp_include },
 	{ "system", spp_system },
-	{ "s", spp_system },
+	{ "!", spp_system },
 	{ NULL, spp_default },
 	{ NULL }
 };
