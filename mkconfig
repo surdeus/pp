@@ -1,14 +1,9 @@
-CC = tcc
-LD = $CC
-NAME = pp
+<$HOME/app/mk/inc/config
+PROGNAME = pp
 VERSION = 1.2.0
-EXE = $HOME/exe
-SHR = $HOME/shr
-MAN = $SHR/man
-CPPFLAGS = \
+DEFS = \
 	-DVERSION=\"$VERSION\"\
 	-DHAVE_FORK=1\
 	-DUSE_R2=0
-CFLAGS = 
 LDFLAGS = $LD_STATIC_FLAG $LIB
-
+CFILES = spp.c main.c
