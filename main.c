@@ -115,6 +115,7 @@ int main(int argc, char **argv) {
 				if (i == argc) {
 					fprintf (stderr, "No file specified.\n");
 				} else {
+					setenv("PPROOTFILE", argv[i], 1);
 					spp_file (argv[i], &out);
 					dostdin = 0;
 
