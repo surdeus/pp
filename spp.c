@@ -281,6 +281,7 @@ S_API int spp_file(const char *file, Output *out) {
 	FILE *in = fopen (file, "r");
 	D fprintf (stderr, "SPP-FILE(%s)\n", file);
 	if (in) {
+		setenv("PPFILE", file, 1);
 		spp_io (in, out);
 		fclose (in);
 		return 1;
