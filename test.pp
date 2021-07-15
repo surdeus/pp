@@ -2,7 +2,6 @@
 # Test
 
 ## Test of setting variables:
-
 <{= var value}><{= dash-var dash value}>
 	var = "<{$ var}>"
 	dash-var = "<{$ dash-var}>"
@@ -22,10 +21,12 @@
 
 <{| sh}>
 	echo `echo Even with sh`
+	echo be the way you can use variables in other programs: $var
 	ls
 <{#|}>
 
 <{| sed s/gay/homosexual/g}>
-Now even gays cannot be called gays.
-Isn't it great?
+Why are you gay?
 <{#|}>
+
+
