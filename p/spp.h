@@ -12,7 +12,7 @@ static char *spp_var_get(char *var) {
 }
 
 static int spp_var_set(const char *var, const char *val) {
-	return r_sys_setenv (var, val);
+	return setenv(var, val, 1);
 }
 
 #if HAVE_SYSTEM
@@ -53,15 +53,15 @@ static TAG_CALLBACK(spp_set) {
 	if (!state->echo[state->ifl]) {
 		return 0;
 	}
-	for (eq=buf; eq[0]; eq++) {
+	/*for (eq=buf; eq[0]; eq++) {
 		switch (eq[0]) {
 		case '-':
 		case '.':
 			eq[0] = '_';
 			break;
 		}
-	}
-	eq = strchr (buf, ' ');
+	}*/
+	eq = strchr(buf, ' ');
 	if (eq) {
 		*eq = '\0';
 		val = eq + 1;
@@ -114,7 +114,7 @@ static TAG_CALLBACK(spp_add) {
 		}
 		ret += atoi (eq + 1);
 		snprintf (res, sizeof (res), "%d", ret);
-		r_sys_setenv (buf, res);
+		setenv(buf, res, 1);
 	} else {
 		/* syntax error */
 	}
@@ -133,7 +133,7 @@ static TAG_CALLBACK(spp_sub) {
 		var = spp_var_get (buf);
 		ret = var? atoi (var): 0;
 		ret -= atoi (eq + 1);
-		r_sys_setenv (buf, eq + 1);
+		setenv(buf, eq + 1, 1);
 	} else {
 		/* syntax error */
 	}
@@ -432,7 +432,7 @@ static struct Tag spp_tags[] = {
 };
 
 static ARG_CALLBACK(spp_arg_i) {
-	r_sys_setenv ("SPP_INCDIR", arg);
+	setenv("SPP_INCDIR", arg, 1);
 	return 0;
 }
 
